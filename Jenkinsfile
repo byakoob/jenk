@@ -21,6 +21,7 @@ pipeline {
     stage('Buzz Step') {
       steps {
         sh 'echo "I\'m a buzz step!!!"'
+        archiveArtifacts(artifacts: '*', fingerprint: true)
       }
     }
 
