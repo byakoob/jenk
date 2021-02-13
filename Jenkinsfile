@@ -35,6 +35,12 @@ pipeline {
           }
         }
 
+        stage('parrallel') {
+          steps {
+            sh 'kubectl get pods'
+          }
+        }
+
       }
     }
 
