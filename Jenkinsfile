@@ -13,8 +13,28 @@ pipeline {
     }
 
     stage('test') {
-      steps {
-        sh 'echo \'Testing..\''
+      parallel {
+        stage('test') {
+          steps {
+            sh 'echo \'Testing..\''
+          }
+        }
+
+        stage('variables') {
+          agent {
+            node {
+              label 'master'
+            }
+
+          }
+          environment {
+            NUM = '603873'
+          }
+          steps {
+            sh 'echo "$NUM"'
+          }
+        }
+
       }
     }
 
