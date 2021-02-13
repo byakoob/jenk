@@ -39,20 +39,9 @@ pipeline {
     }
 
     stage('Buzz Step') {
-      parallel {
-        stage('Buzz Step') {
-          steps {
-            sh 'echo "I\'m a buzz step!!!"'
-            archiveArtifacts(artifacts: '*', fingerprint: true)
-          }
-        }
-
-        stage('JUNIT') {
-          steps {
-            junit '*.log'
-          }
-        }
-
+      steps {
+        sh 'echo "I\'m a buzz step!!!"'
+        archiveArtifacts(artifacts: '*', fingerprint: true)
       }
     }
 
