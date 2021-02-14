@@ -21,5 +21,11 @@ pipeline {
       }
     }
 
+    stage('HumanInput') {
+      steps {
+        input 'deploy to stages'
+      }
+    }
+
   }
 }
